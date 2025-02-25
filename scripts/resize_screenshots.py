@@ -23,7 +23,7 @@ for filename in os.listdir(input_dir):
         img_path = os.path.join(input_dir, filename)
         img = Image.open(img_path)
         for size_key, size in sizes.items():
-            resized_img = img.resize(size, Image.ANTIALIAS)
+            resized_img = img.resize(size, Image.LANCZOS)  # Use LANCZOS for high-quality resizing
             resized_img.save(os.path.join(output_dir, size_key, filename))
 
 print("Resizing complete.")
